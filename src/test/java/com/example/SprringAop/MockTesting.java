@@ -20,6 +20,10 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.example.studentServiceMock;
+import com.example.studententity;
+import com.example.studentservice;
+
 
 @RunWith(JUnitPlatform.class)
 @SpringBootTest
@@ -65,10 +69,11 @@ public class MockTesting {
 	{
 		System.out.println("this is TestbyId mock test");
 		String eml ="s@gmail.com";
-		studententity studtst = new studententity(1,"sonu kumar",22,"s@gmail.com");
+		studententity studtst = new studententity(1,"sonu kumar",44,"s@gmail.com");
 		List<studententity> sdd = new ArrayList<studententity>();
 		sdd.add(studtst);
 		when(stdSerMock.studentbyemail(eml)).thenReturn(sdd);
+		System.out.println("check data value comming ="+stdSerMock.studentbyemail("s@gmail.com").get(0).getAge());
 		List<studententity> ste = stdSerMock.studentbyemail("s@gmail.com");
 		List<studententity> sta = stdser.studentbyemail("s@gmail.com");
 		Assertions.assertEquals(ste.get(0).getAge(), sta.get(0).getAge());
