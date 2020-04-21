@@ -22,7 +22,7 @@ public class LoggingAdvice {
 	
 	Logger log =LoggerFactory.getLogger(LoggingAdvice.class);
 
-	@Pointcut(value = "execution(* com.example.controller.*(..))")
+	@Pointcut(value = "execution(* com.example.MovieController.*(..))")
 	public void mypointcut()
 	{
 		
